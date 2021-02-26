@@ -10,13 +10,20 @@ import java.util.Arrays;
  * @immutable
  */
 public class IntList {
+	
+	/**
+	 * @invar | elements != null
+	 * 
+	 * @representationObject
+	 */
+	private int[] elements;
 
 	/**
 	 * Returns an array containing the elements of this object.
 	 * 
 	 * @creates | result
 	 */
-	public int[] getElements() { throw new RuntimeException("Not yet implemented"); }
+	public int[] getElements() { return elements.clone(); }
 	
 	/**
 	 * Initializes this object so that it represents the sequence of int values contained in the given array.
@@ -26,7 +33,7 @@ public class IntList {
 	 * @post | Arrays.equals(getElements(), elements)
 	 */
 	public IntList(int[] elements) {
-		throw new RuntimeException("Not yet implemented");
+		this.elements = elements.clone();
 	}
 
 }
