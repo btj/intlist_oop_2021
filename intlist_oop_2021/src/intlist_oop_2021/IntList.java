@@ -93,10 +93,30 @@ public class IntList {
 		throw new RuntimeException("Not yet implemented");
 	}
 	
+	/**
+	 * Sets the element at the given index to the given value.
+	 * 
+	 * @mutates | this
+	 * 
+	 * @pre | 0 <= index && index < getElements().length
+	 * 
+	 * @post | getElements().length == old(getElements()).length
+	 * @post | IntStream.range(0, getElements().length).allMatch(i -> getElements()[i] == (i == index ? value : old(getElements())[i]))
+	 */
 	public void setElement(int index, int value) {
 		throw new RuntimeException("Not yet implemented");
 	}
-	
+
+	/**
+	 * Removes the element at the given index from this object's sequence of values.
+	 * 
+	 * @mutates | this
+	 * 
+	 * @pre | 0 <= index && index < getElements().length
+	 * 
+	 * @post | getElements().length == old(getElements()).length - 1
+	 * @post | IntStream.range(0, getElements().length).allMatch(i -> getElements()[i] == old(getElements())[i < index ? i : i + 1])
+	 */
 	public void removeElement(int index) {
 		throw new RuntimeException("Not yet implemented");
 	}
