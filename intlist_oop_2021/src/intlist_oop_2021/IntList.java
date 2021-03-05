@@ -90,7 +90,19 @@ public class IntList {
 	 * @post | IntStream.range(index, old(getElements()).length).allMatch(i -> getElements()[i + 1] == old(getElements())[i])
 	 */
 	public void insertElement(int index, int value) {
-		throw new RuntimeException("Not yet implemented");
+		Node sentinel = new Node();
+		sentinel.next = head;
+		Node node = sentinel;
+		while (0 < index) {
+			node = node.next;
+			index--;
+		}
+		Node newNode = new Node();
+		newNode.value = value;
+		newNode.next = node.next;
+		node.next = newNode;
+		head = sentinel.next;
+		length++;
 	}
 	
 	/**
@@ -104,7 +116,12 @@ public class IntList {
 	 * @post | IntStream.range(0, getElements().length).allMatch(i -> getElements()[i] == (i == index ? value : old(getElements())[i]))
 	 */
 	public void setElement(int index, int value) {
-		throw new RuntimeException("Not yet implemented");
+		Node node = head;
+		while (0 < index) {
+			node = node.next;
+			index--;
+		}
+		node.value = value;
 	}
 
 	/**
@@ -118,7 +135,16 @@ public class IntList {
 	 * @post | IntStream.range(0, getElements().length).allMatch(i -> getElements()[i] == old(getElements())[i < index ? i : i + 1])
 	 */
 	public void removeElement(int index) {
-		throw new RuntimeException("Not yet implemented");
+		Node sentinel = new Node();
+		sentinel.next = head;
+		Node node = sentinel;
+		while (0 < index) {
+			node = node.next;
+			index--;
+		}
+		node.next = node.next.next;
+		head = sentinel.next;
+		length--;
 	}
 
 }
